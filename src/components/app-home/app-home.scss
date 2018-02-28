@@ -22,7 +22,7 @@
       box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.9);
     }
 
-    [itemprop=city] {
+    .city {
       position: absolute;
       top: 16px;
       width: 100%;
@@ -30,14 +30,14 @@
       text-align: center;
     }
 
-    [itemprop=author] {
+    .author {
       font-size: 12px;
       position: absolute;
       bottom: 16px;
       left: 16px;
     }
 
-    [itemprop=coordinates] {
+    .coordinates {
       font-size: 12px;
       position: absolute;
       bottom: 16px;
@@ -92,7 +92,7 @@
       object-fit: cover;
     }
 
-    [itemprop=city] {
+    .city {
       position: absolute;
       bottom: 16px;
       width: 100%;
@@ -100,14 +100,14 @@
       text-align: center;
     }
 
-    [itemprop=author] {
+    .author {
       font-size: 12px;
       position: absolute;
       top: 16px;
       left: 16px;
     }
 
-    [itemprop=coordinates] {
+    .coordinates {
       font-size: 12px;
       position: absolute;
       top: 16px;

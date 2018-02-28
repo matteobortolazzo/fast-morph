@@ -31,14 +31,14 @@ export class FastMorph {
     this.slot1.style.marginTop = `-${this.slot0.getBoundingClientRect().height}px`;
 
     // Add event listeners to the change state activators
-    this.slot0.querySelector(".change-state").addEventListener('click', () => this.switchSlot());
-    this.slot1.querySelector(".change-state").addEventListener('click', () => this.switchSlot());
+    this.slot0.querySelector("[itemprop=fm-activator]").addEventListener('click', () => this.switchSlot());
+    this.slot1.querySelector("[itemprop=fm-activator]").addEventListener('click', () => this.switchSlot());
 
     // For every element to morph
     for(let c of this.elements) {
       // Get the two elements
-      let el0 = this.slot0.querySelector(`[itemprop=${c}]`) as HTMLElement;
-      let el1 = this.slot1.querySelector(`[itemprop=${c}]`) as HTMLElement;
+      let el0 = this.slot0.querySelector(`[itemprop=fm-${c}]`) as HTMLElement;
+      let el1 = this.slot1.querySelector(`[itemprop=fm-${c}]`) as HTMLElement;
       // Get their bounds
       let bound1 = el0.getBoundingClientRect();
       let bound2 = el1.getBoundingClientRect();
