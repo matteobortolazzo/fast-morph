@@ -1,6 +1,5 @@
 import {Component, Element, Prop} from '@stencil/core';
 
-
 @Component({
   tag: 'fast-morph',
   styleUrl: 'fast-morph.scss'
@@ -48,6 +47,9 @@ export class FastMorph {
       let scaleX = bound1.width / bound2.width;
       let scaleY = bound1.height / bound2.height;
       // Concat the transform properties
+      console.log(c);
+      console.log(bound1);
+      console.log(bound2);
       let transformStyle1 = `translateX(${translateX}px) translateY(${translateY}px) scaleX(${scaleX}) scaleY(${scaleY})`;
       let transformStyle0 = `translateX(${-translateX}px) translateY(${-translateY}px) scaleX(${1/scaleX}) scaleY(${1/scaleY})`;
       console.log(c);
@@ -72,6 +74,7 @@ export class FastMorph {
 
   switchSlot() {
     this.state = !this.state;
+    this.transformElements();
     if(this.state) {
       this.hideSlot(this.slot0);
       this.showSlot(this.slot1);
@@ -80,7 +83,6 @@ export class FastMorph {
       this.hideSlot(this.slot1);
       this.showSlot(this.slot0);
     }
-    this.transformElements();
   }
 
   transformElements() {
@@ -108,8 +110,10 @@ export class FastMorph {
 
   showSlot(slot: HTMLElement) {
     slot.style.visibility = 'visible';
-    slot.style.opacity = '1';
-    setTimeout(() => slot.style.pointerEvents = 'auto', this.animationSpeed);
+    setTimeout(() => {
+      slot.style.opacity = '1';
+      setTimeout(() => slot.style.pointerEvents = 'auto', this.animationSpeed);
+    }, 20);
   }
 
   render() {

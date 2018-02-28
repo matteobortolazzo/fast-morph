@@ -2,11 +2,11 @@
   padding: 10px;
 }
 
-.slot1-container {
+.small-slot {
   width: 384px;
   margin: 0 auto;
 
-  .image-quad {
+  .top-card {
     color: white;
     width: 320px;
     height: 320px;
@@ -22,12 +22,16 @@
       box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.9);
     }
 
-    .city {
+    .city-name-container {
       position: absolute;
-      top: 16px;
-      width: 100%;
-      font-size: 40px;
       text-align: center;
+      font-size: 40px;
+      width: 100%;
+      top: 16px;
+
+      .city-name {
+        display: inline-block;
+      }
     }
 
     .author {
@@ -45,59 +49,75 @@
     }
   }
 
-  .info {
-    padding: 32px;
-    padding-top: 128px;
-    background: white;
+  .bottom-card {
+    position: relative;
     margin-top: -96px;
-    border-radius: 4px;
     color: rgba(0, 0, 0, 0.8);
     font-size: 12px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
 
-  .profiles {
-    padding: 32px;
-    padding-top: 16px;
-    margin-top: 16px;
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
-    padding-left: 8px;
-
-    img {
-      width: 32px;
-      height: 32px;
-      float: left;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-left: -8px;
+    .info-back {
+      height: 224px;
+      width: 100%;
+      background: white;
+      border-radius: 4px;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .info-front {
+      position: absolute;
+      top: 112px;
+      bottom: 32px;
+      right: 32px;
+      left: 32px;
+
+      .profiles {
+        margin-top: 16px;
+        padding-top: 16px;
+        padding-left: 8px;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+
+        img {
+          width: 32px;
+          height: 32px;
+          float: left;
+          object-fit: cover;
+          border-radius: 50%;
+          margin-left: -8px;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+      }
     }
   }
 }
 
-
-.slot2-container {
+.big-slot {
   width: 640px;
   margin: 0 auto;
 
-  .image-quad {
+  .top-card {
     color: white;
     height: 320px;
     margin: 0 auto;
     position: relative;
+    z-index: 10;
 
-    img {
+    .city-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
-    .city {
+    .city-name-container {
       position: absolute;
+      text-align: center;
+      font-size: 40px;
       bottom: 16px;
       width: 100%;
-      font-size: 40px;
-      text-align: center;
+
+      .city-name {
+        display: inline-block;
+      }
     }
 
     .author {
@@ -115,35 +135,43 @@
     }
   }
 
-  .info {
-    width: 100%;
-    padding: 32px 0;
-    background: white;
-    border-radius: 4px;
+  .bottom-card {
+    position: relative;
     color: rgba(0, 0, 0, 0.8);
     font-size: 12px;
 
-    .info-inner {
-      padding: 0 32px;
+    .info-back {
+      height: 256px;
+      width: 100%;
+      background: white;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
-    .profile {
-      display: flex;
-      padding: 8px 0;
+    .info-front {
+      position: absolute;
+      top: 32px;
+      bottom: 32px;
+      right: 32px;
+      left: 32px;
 
-      img {
-        width: 48px;
-        height: 48px;
-        object-fit: cover;
-        border-radius: 50%;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      }
-
-      .name {
+      .profile {
         display: flex;
-        margin-left: 16px;
-        margin-top: 18px;
-        vertical-align: middle;
+        padding: 8px 0;
+
+        img {
+          width: 48px;
+          height: 48px;
+          object-fit: cover;
+          border-radius: 50%;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .name {
+          display: flex;
+          margin-left: 16px;
+          margin-top: 20px;
+          vertical-align: middle;
+        }
       }
     }
   }
