@@ -3,12 +3,12 @@ import {Component, Element, Prop} from '@stencil/core';
 
 @Component({
   tag: 'fast-morph',
-  styleUrl: 'fast-morph.css'
+  styleUrl: 'fast-morph.scss'
 })
 export class FastMorph {
 
   @Element() fastMorphEl: HTMLElement;
-  @Prop() activeClasses: string[];
+  @Prop() elements: string[];
 
   baseTransform: string = 'translateX(0) translateY(0) scaleX(1) scaleY(1)';
 
@@ -35,10 +35,10 @@ export class FastMorph {
     this.slot1.querySelector(".change-state").addEventListener('click', () => this.switchSlot());
 
     // For every element to morph
-    for(let c of this.activeClasses) {
+    for(let c of this.elements) {
       // Get the two elements
-      let el0 = this.slot0.querySelector(`.${c}`) as HTMLElement;
-      let el1 = this.slot1.querySelector(`.${c}`) as HTMLElement;
+      let el0 = this.slot0.querySelector(`[itemprop=${c}]`) as HTMLElement;
+      let el1 = this.slot1.querySelector(`[itemprop=${c}]`) as HTMLElement;
       // Get their bounds
       let bound1 = el0.getBoundingClientRect();
       let bound2 = el1.getBoundingClientRect();
@@ -70,11 +70,7 @@ export class FastMorph {
     }
   }
 
-  isTransitioning: boolean;
   switchSlot() {
-    if(this.isTransitioning) return;
-    this.isTransitioning = true;
-
     this.state = !this.state;
     if(this.state) {
       this.hideSlot(this.slot0);
@@ -84,10 +80,7 @@ export class FastMorph {
       this.hideSlot(this.slot1);
       this.showSlot(this.slot0);
     }
-
     this.transformElements();
-
-    setTimeout(() => this.isTransitioning = false, this.animationSpeed);
   }
 
   transformElements() {
@@ -109,12 +102,14 @@ export class FastMorph {
 
   hideSlot(slot: HTMLElement) {
     slot.style.opacity = '0';
+    slot.style.pointerEvents = 'none';
     setTimeout(() => slot.style.visibility = 'hidden', this.animationSpeed);
   }
 
   showSlot(slot: HTMLElement) {
     slot.style.visibility = 'visible';
     slot.style.opacity = '1';
+    setTimeout(() => slot.style.pointerEvents = 'auto', this.animationSpeed);
   }
 
   render() {

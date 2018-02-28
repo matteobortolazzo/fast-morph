@@ -101,7 +101,7 @@ declare global {
   }
   namespace JSXElements {
     export interface FastMorphAttributes extends HTMLAttributes {
-      activeClasses?: string[];
+      elements?: string[];
     }
   }
 }
