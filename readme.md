@@ -5,7 +5,7 @@
 ## Example
 
 1. Create two states (HTML)
-2. Wrap both in one fast-morph component
+2. Wrap both in one fast-morph component (using slot="state-0" and slot="state-1")
 3. Label the elements you want to morph with itemprop="fm-\<something\>"
 4. Label the elements you want to use as state changer with itemprop="fm-activator"
 5. List the elements you want to morph in the elements property without fm- prefix (this will be removed)
