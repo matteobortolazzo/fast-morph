@@ -2,9 +2,25 @@
   padding: 10px;
 }
 
-.small-slot {
-  width: 384px;
+.description-container {
+  text-align: center;
+
+  .description {
+    display: inline-block;
+  }
+}
+
+.fast-morph {
+  width: 640px;
+  height: 576px;
   margin: 0 auto;
+}
+
+.small-slot {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  text-align: center;
 
   .top-card {
     color: white;
@@ -50,13 +66,15 @@
   }
 
   .bottom-card {
+    width: 440px;
     position: relative;
+    margin: 0 auto;
     margin-top: -96px;
     color: rgba(0, 0, 0, 0.8);
     font-size: 12px;
 
     .info-back {
-      height: 224px;
+      height: 244px;
       width: 100%;
       background: white;
       border-radius: 4px;
@@ -65,16 +83,19 @@
 
     .info-front {
       position: absolute;
-      top: 112px;
+      top: 132px;
       bottom: 32px;
       right: 32px;
       left: 32px;
 
+      .description-container {
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      }
+
       .profiles {
-        margin-top: 16px;
-        padding-top: 16px;
-        padding-left: 8px;
-        border-top: 1px solid rgba(0, 0, 0, 0.2);
+        margin-left: 8px;
 
         img {
           width: 32px;
@@ -153,6 +174,10 @@
       bottom: 32px;
       right: 32px;
       left: 32px;
+
+      .description-container {
+        margin-top: -18px;
+      }
 
       .profile {
         display: flex;

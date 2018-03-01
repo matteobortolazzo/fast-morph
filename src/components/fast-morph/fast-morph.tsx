@@ -13,6 +13,7 @@ export class FastMorph {
 
   state: boolean;
   animationSpeed: number = 900;
+  opacitySpeed: number = 300;
 
   slot0: HTMLElement;
   slot1: HTMLElement;
@@ -25,9 +26,7 @@ export class FastMorph {
     this.slot1 = this.fastMorphEl.querySelector('[slot=state-1]') as HTMLElement;
 
     // Second state positioning
-    this.slot1.style.opacity = '0';
-    this.slot1.style.visibility = 'hidden';
-    this.slot1.style.marginTop = `-${this.slot0.getBoundingClientRect().height}px`;
+    // this.slot1.style.marginTop = `-${this.slot0.getBoundingClientRect().height}px`;
 
     // Add event listeners to the change state activators
     this.slot0.querySelector("[itemprop=fm-activator]").addEventListener('click', () => this.switchSlot());
@@ -47,14 +46,8 @@ export class FastMorph {
       let scaleX = bound1.width / bound2.width;
       let scaleY = bound1.height / bound2.height;
       // Concat the transform properties
-      console.log(c);
-      console.log(bound1);
-      console.log(bound2);
       let transformStyle1 = `translateX(${translateX}px) translateY(${translateY}px) scaleX(${scaleX}) scaleY(${scaleY})`;
       let transformStyle0 = `translateX(${-translateX}px) translateY(${-translateY}px) scaleX(${1/scaleX}) scaleY(${1/scaleY})`;
-      console.log(c);
-      console.log(transformStyle0);
-      console.log(transformStyle1);
       // Assign the style
       el0.style.transform = this.baseTransform;
       el0.classList.add('will-transform');
@@ -70,9 +63,17 @@ export class FastMorph {
           transform: transformStyle1
         }];
     }
+    this.slot1.style.opacity = '0';
+    this.slot0.style.zIndex = '9999';
+    this.slot1.style.visibility = 'none';
+    this.slot1.style.pointerEvents = 'none';
   }
 
+  transitioning: boolean = false;
   switchSlot() {
+    if(this.transitioning) return;
+    this.transitioning = true;
+
     this.state = !this.state;
     this.transformElements();
     if(this.state) {
@@ -83,6 +84,8 @@ export class FastMorph {
       this.hideSlot(this.slot1);
       this.showSlot(this.slot0);
     }
+
+    setTimeout(() => this.transitioning = false, this.animationSpeed)
   }
 
   transformElements() {
@@ -92,6 +95,11 @@ export class FastMorph {
         value[0].el.style.transform = value[0].transform;
         value[1].el.style.transform = this.baseTransform;
       }
+
+      setTimeout(() => {
+        this.slot0.style.zIndex = '0';
+        this.slot1.style.zIndex = '9999';
+      }, this.animationSpeed / 2);
     }
     else {
       for (let id in this.elementsToTransform) {
@@ -99,21 +107,24 @@ export class FastMorph {
         value[0].el.style.transform = this.baseTransform;
         value[1].el.style.transform = value[1].transform;
       }
+
+      setTimeout(() => {
+        this.slot1.style.zIndex = '0';
+        this.slot0.style.zIndex = '9999';
+      }, this.animationSpeed / 2);
     }
   }
 
   hideSlot(slot: HTMLElement) {
-    slot.style.opacity = '0';
     slot.style.pointerEvents = 'none';
-    setTimeout(() => slot.style.visibility = 'hidden', this.animationSpeed);
+    setTimeout(() => slot.style.visibility = 'none', this.animationSpeed);
+    setTimeout(() => slot.style.opacity = '0', this.animationSpeed / 2 + this.opacitySpeed / 2);
   }
 
   showSlot(slot: HTMLElement) {
     slot.style.visibility = 'visible';
-    setTimeout(() => {
-      slot.style.opacity = '1';
-      setTimeout(() => slot.style.pointerEvents = 'auto', this.animationSpeed);
-    }, 20);
+    slot.style.pointerEvents = 'auto';
+    setTimeout(() => slot.style.opacity = '1', this.animationSpeed / 2 - this.opacitySpeed / 2);
   }
 
   render() {
