@@ -16,7 +16,7 @@
     <a itemprop="fm-activator">
       <strong itemprop="fm-title">Fast Morph</strong>
       <br />
-      <p itemprop="description">Something to write!</p>
+      <p itemprop="fm-description">Something to write!</p>
     </a>
   </div>
   <div slot="state-1">
