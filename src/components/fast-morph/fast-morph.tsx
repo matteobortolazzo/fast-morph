@@ -1,4 +1,4 @@
-import {Component, Element, Prop} from '@stencil/core';
+import {Component, Element} from '@stencil/core';
 
 @Component({
   tag: 'fast-morph',
@@ -7,7 +7,6 @@ import {Component, Element, Prop} from '@stencil/core';
 export class FastMorph {
 
   @Element() fastMorphEl: HTMLElement;
-  @Prop() elements: string[];
 
   baseTransform: string = 'translateX(0) translateY(0) scaleX(1) scaleY(1)';
 
@@ -18,27 +17,40 @@ export class FastMorph {
   slot0: HTMLElement;
   slot1: HTMLElement;
 
-  elementsToTransform: { [id: string] : [{ el: HTMLElement, transform: string }, { el: HTMLElement, transform: string }]} = {};
+  elementsToTransform: { el0: { el: HTMLElement, transform: string }, el1: { el: HTMLElement, transform: string }}[] = [];
 
   componentDidLoad() {
     // Get the ref of the two div states
     this.slot0 = this.fastMorphEl.querySelector('[slot=state-0]') as HTMLElement;
     this.slot1 = this.fastMorphEl.querySelector('[slot=state-1]') as HTMLElement;
-
     // Hide the second state
+    this.slot1.style.opacity = '0';
     this.slot1.style.pointerEvents = 'none';
     this.slot1.style.visibility = 'none';
-    this.slot1.style.opacity = '0';
-
     // Add event listeners to the change state activators
     this.slot0.querySelector("[itemprop=fm-activator]").addEventListener('click', () => this.switchSlot());
     this.slot1.querySelector("[itemprop=fm-activator]").addEventListener('click', () => this.switchSlot());
-
+    // Find the elements to transform
+    let slot0Elements = Array.from(this.slot0.querySelectorAll("[itemprop^=fm-]"));
+    let slot1Elements = Array.from(this.slot1.querySelectorAll("[itemprop^=fm-]"));
+    let elementsToAnimate: { element0: HTMLElement, element1: HTMLElement }[] = [];
+    // Check that every element has its "twin"
+    for(let i = 0; i < slot0Elements.length; i++) {
+      let slot0El = slot0Elements[i] as HTMLElement;
+      // If it's not the activator element
+      if(slot0El.getAttribute("itemprop") != "fm-activator") {
+        for (let j = 0; j < slot1Elements.length; j++) {
+          let slot1El = slot1Elements[j] as HTMLElement;
+          // Checks if there's a "twin"
+          if (slot0El.getAttribute("itemprop") == slot1El.getAttribute("itemprop"))
+            elementsToAnimate.push({element0: slot0El as HTMLElement, element1: slot1El as HTMLElement});
+        }
+      }
+    }
     // For every element to morph
-    for(let c of this.elements) {
-      // Get the two elements
-      let el0 = this.slot0.querySelector(`[itemprop=fm-${c}]`) as HTMLElement;
-      let el1 = this.slot1.querySelector(`[itemprop=fm-${c}]`) as HTMLElement;
+    for(let elements of elementsToAnimate) {
+      let el0 = elements.element0;
+      let el1 = elements.element1;
       // Get their bounds
       let bound1 = el0.getBoundingClientRect();
       let bound2 = el1.getBoundingClientRect();
@@ -56,14 +68,16 @@ export class FastMorph {
       el1.style.transform = transformStyle1;
       el1.classList.add('will-transform');
       // Store the styles
-      this.elementsToTransform[c] = [{
+      this.elementsToTransform.push({
+        el0: {
           el: el0,
           transform: transformStyle0
         },
-        {
+        el1: {
           el: el1,
           transform: transformStyle1
-        }];
+        }
+      });
     }
   }
 
@@ -88,17 +102,15 @@ export class FastMorph {
 
   transformElements() {
     if(this.state) {
-      for (let id in this.elementsToTransform) {
-        let value = this.elementsToTransform[id];
-        value[0].el.style.transform = value[0].transform;
-        value[1].el.style.transform = this.baseTransform;
+      for (let elGroup of this.elementsToTransform) {
+        elGroup.el0.el.style.transform = elGroup.el0.transform;
+        elGroup.el1.el.style.transform = this.baseTransform;
       }
     }
     else {
-      for (let id in this.elementsToTransform) {
-        let value = this.elementsToTransform[id];
-        value[0].el.style.transform = this.baseTransform;
-        value[1].el.style.transform = value[1].transform;
+      for (let elGroup of this.elementsToTransform) {
+        elGroup.el0.el.style.transform = this.baseTransform;
+        elGroup.el1.el.style.transform = elGroup.el1.transform;
       }
     }
   }

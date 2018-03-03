@@ -9,7 +9,7 @@ export class ExampleCard {
   render() {
     return (
       <div class="example-card">
-        <fast-morph elements={['image', 'name', 'coordinates', 'author', 'bottom-card', 'description', 'pizza', 'pasta', 'lasagne']}>
+        <fast-morph>
           <div slot="state-0">
             <div class="small-slot" itemprop="fm-activator">
               <div class="top-card">
