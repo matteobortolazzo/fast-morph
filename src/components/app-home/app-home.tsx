@@ -9,7 +9,8 @@ export class AppHome {
   render() {
     return (
       <div class='app-home'>
-        <example-card></example-card>
+        <example-text></example-text>
+        {/*<example-card></example-card>*/}
       </div>
     );
   }

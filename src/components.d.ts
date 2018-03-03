@@ -109,7 +109,7 @@ declare global {
 
 import {
   ExampleText as ExampleText
-} from './components/example-mario/example-text';
+} from './components/example-text/example-text';
 
 declare global {
   interface HTMLExampleTextElement extends ExampleText, HTMLStencilElement {
