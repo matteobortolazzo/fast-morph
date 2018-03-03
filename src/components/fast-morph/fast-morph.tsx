@@ -12,8 +12,8 @@ export class FastMorph {
   baseTransform: string = 'translateX(0) translateY(0) scaleX(1) scaleY(1)';
 
   state: boolean;
-  animationSpeed: number = 900;
   opacitySpeed: number = 300;
+  animationSpeed: number = 600;
 
   slot0: HTMLElement;
   slot1: HTMLElement;
@@ -25,8 +25,10 @@ export class FastMorph {
     this.slot0 = this.fastMorphEl.querySelector('[slot=state-0]') as HTMLElement;
     this.slot1 = this.fastMorphEl.querySelector('[slot=state-1]') as HTMLElement;
 
-    // Second state positioning
-    // this.slot1.style.marginTop = `-${this.slot0.getBoundingClientRect().height}px`;
+    // Hide the second state
+    this.slot1.style.pointerEvents = 'none';
+    this.slot1.style.visibility = 'none';
+    this.slot1.style.opacity = '0';
 
     // Add event listeners to the change state activators
     this.slot0.querySelector("[itemprop=fm-activator]").addEventListener('click', () => this.switchSlot());
@@ -63,10 +65,6 @@ export class FastMorph {
           transform: transformStyle1
         }];
     }
-    this.slot1.style.opacity = '0';
-    this.slot0.style.zIndex = '9999';
-    this.slot1.style.visibility = 'none';
-    this.slot1.style.pointerEvents = 'none';
   }
 
   transitioning: boolean = false;
@@ -95,11 +93,6 @@ export class FastMorph {
         value[0].el.style.transform = value[0].transform;
         value[1].el.style.transform = this.baseTransform;
       }
-
-      setTimeout(() => {
-        this.slot0.style.zIndex = '0';
-        this.slot1.style.zIndex = '9999';
-      }, this.animationSpeed / 2);
     }
     else {
       for (let id in this.elementsToTransform) {
@@ -107,24 +100,21 @@ export class FastMorph {
         value[0].el.style.transform = this.baseTransform;
         value[1].el.style.transform = value[1].transform;
       }
-
-      setTimeout(() => {
-        this.slot1.style.zIndex = '0';
-        this.slot0.style.zIndex = '9999';
-      }, this.animationSpeed / 2);
     }
   }
 
   hideSlot(slot: HTMLElement) {
+    slot.style.transition = 'opacity 300ms cubic-bezier(0.215, 0.61, 0.355, 1)';
     slot.style.pointerEvents = 'none';
     setTimeout(() => slot.style.visibility = 'none', this.animationSpeed);
-    setTimeout(() => slot.style.opacity = '0', this.animationSpeed / 2 + this.opacitySpeed / 2);
+    setTimeout(() => slot.style.opacity = '0',  this.opacitySpeed);
   }
 
   showSlot(slot: HTMLElement) {
+    slot.style.transition = 'opacity 300ms cubic-bezier(0.55, 0.055, 0.675, 0.19)';
     slot.style.visibility = 'visible';
     slot.style.pointerEvents = 'auto';
-    setTimeout(() => slot.style.opacity = '1', this.animationSpeed / 2 - this.opacitySpeed / 2);
+    slot.style.opacity = '1';
   }
 
   render() {

@@ -1,10 +1,9 @@
 [slot] {
   will-change: opacity;
-  transition: opacity 300ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .will-transform {
   will-change: transform;
   transform-origin: left top 0px;
-  transition: transform 900ms cubic-bezier(0.86, 0, 0.07, 1);
+  transition: transform 600ms  cubic-bezier(0.645, 0.045, 0.355, 1);
 }
