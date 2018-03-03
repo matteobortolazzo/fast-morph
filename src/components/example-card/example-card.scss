@@ -1,0 +1,206 @@
+.description-container {
+  text-align: center;
+
+  .description {
+    display: inline-block;
+  }
+}
+
+.example-card {
+  position: relative;
+
+  .fast-morph {
+    width: 640px;
+    height: 576px;
+    margin: 0 auto;
+  }
+
+  .small-slot {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    .top-card {
+      color: white;
+      width: 320px;
+      height: 320px;
+      margin: 0 auto;
+      z-index: 10;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+        box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.9);
+      }
+
+      .city-name-container {
+        position: absolute;
+        text-align: center;
+        font-size: 40px;
+        width: 100%;
+        top: 16px;
+
+        .city-name {
+          display: inline-block;
+        }
+      }
+
+      .author {
+        font-size: 12px;
+        position: absolute;
+        bottom: 16px;
+        left: 16px;
+      }
+
+      .coordinates {
+        font-size: 12px;
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+      }
+    }
+
+    .bottom-card {
+      width: 440px;
+      position: relative;
+      margin: 0 auto;
+      margin-top: -96px;
+      color: rgba(0, 0, 0, 0.8);
+      font-size: 12px;
+
+      .info-back {
+        height: 244px;
+        width: 100%;
+        background: white;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      .info-front {
+        position: absolute;
+        top: 132px;
+        bottom: 32px;
+        right: 32px;
+        left: 32px;
+
+        .description-container {
+          margin-bottom: 16px;
+          padding-bottom: 16px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .profiles {
+          margin-left: 8px;
+
+          img {
+            width: 32px;
+            height: 32px;
+            float: left;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-left: -8px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          }
+        }
+      }
+    }
+  }
+
+  .big-slot {
+    width: 640px;
+    margin: 0 auto;
+
+    .top-card {
+      color: white;
+      height: 320px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+
+      .city-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      .city-name-container {
+        position: absolute;
+        text-align: center;
+        font-size: 40px;
+        bottom: 16px;
+        width: 100%;
+
+        .city-name {
+          display: inline-block;
+        }
+      }
+
+      .author {
+        font-size: 12px;
+        position: absolute;
+        top: 16px;
+        left: 16px;
+      }
+
+      .coordinates {
+        font-size: 12px;
+        position: absolute;
+        top: 16px;
+        right: 16px;
+      }
+    }
+
+    .bottom-card {
+      position: relative;
+      color: rgba(0, 0, 0, 0.8);
+      font-size: 12px;
+
+      .info-back {
+        height: 256px;
+        width: 100%;
+        background: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        .product-descriptions {
+          text-align: left;
+          font-size: 18px;
+          padding-top: 28px;
+          padding-left: 96px;
+
+          & > div {
+            height: 32px;
+            margin-top: 32px;
+          }
+        }
+      }
+
+      .info-front {
+        position: absolute;
+        top: 32px;
+        bottom: 32px;
+        right: 32px;
+        left: 32px;
+
+        .description-container {
+          margin-top: -18px;
+        }
+
+        img {
+          margin-top: 16px;
+          display: block;
+          width: 48px;
+          height: 48px;
+          object-fit: cover;
+          border-radius: 50%;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+      }
+    }
+  }
+}

@@ -78,6 +78,66 @@ declare global {
 
 
 import {
+  ExampleCard as ExampleCard
+} from './components/example-card/example-card';
+
+declare global {
+  interface HTMLExampleCardElement extends ExampleCard, HTMLStencilElement {
+  }
+  var HTMLExampleCardElement: {
+    prototype: HTMLExampleCardElement;
+    new (): HTMLExampleCardElement;
+  };
+  interface HTMLElementTagNameMap {
+    "example-card": HTMLExampleCardElement;
+  }
+  interface ElementTagNameMap {
+    "example-card": HTMLExampleCardElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "example-card": JSXElements.ExampleCardAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExampleCardAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  ExampleText as ExampleText
+} from './components/example-mario/example-text';
+
+declare global {
+  interface HTMLExampleTextElement extends ExampleText, HTMLStencilElement {
+  }
+  var HTMLExampleTextElement: {
+    prototype: HTMLExampleTextElement;
+    new (): HTMLExampleTextElement;
+  };
+  interface HTMLElementTagNameMap {
+    "example-text": HTMLExampleTextElement;
+  }
+  interface ElementTagNameMap {
+    "example-text": HTMLExampleTextElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "example-text": JSXElements.ExampleTextAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ExampleTextAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
   FastMorph as FastMorph
 } from './components/fast-morph/fast-morph';
 
