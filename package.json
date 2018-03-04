@@ -2,7 +2,6 @@
   "name": "@matteobortolazzo/fast-morph",
   "version": "1.0.1",
   "description": "A fast Morphing UI web component",
-  "keywords": [ "morph", "morphing ui", "web component", "transform"],
   "main": "dist/fast-morph.js",
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
@@ -50,5 +49,8 @@
       "json",
       "jsx"
     ]
-  }
+  },
+  "keywords": [
+    "true"
+  ]
 }
