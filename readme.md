@@ -4,6 +4,9 @@
 
 Inspired by brunnolou's [react-morph](https://github.com/brunnolou/react-morph)
 
+![Sign-In example](https://raw.githubusercontent.com/matteobortolazzo/fast-morph/master/gifs/motion-ui-sign-in.gif)
+
+
 ## Install
 ```
 npm i @matteobortolazzo/fast-morph --save
@@ -64,3 +67,5 @@ Please visit [https://stenciljs.com/docs/framework-integration](https://stencilj
 * List items could be miscalculated; a simple solution is: list-style: none;.
 * Sometimes you need extra layers instead of nested children.
 * Avoid animating both the parent and children to avoid unpredicted results.
+
+![Card example](https://raw.githubusercontent.com/matteobortolazzo/fast-morph/master/gifs/motion-ui-card.gif) 
