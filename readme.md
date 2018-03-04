@@ -2,13 +2,40 @@
 
 **A Morphing UI web component built with StencilJS**
 
+Inspired by brunnolou's [react-morph](https://github.com/brunnolou/react-morph)
+
+## Install
+```
+npm i @matteobortolazzo/fast-morph --save
+```
+
+**Stencil project**
+```
+// stencil.config.js
+exports.config = {
+  ...
+  collections: [
+    { name: '@matteobortolazzo/fast-morph' }
+  ]
+}
+```
+
+**Pure HTML**
+```
+<script src="https://unpkg.com/@matteobortolazzo/fast-morph@1.0.1/dist/fast-morph.js"></script> 
+```
+
+**Angular / React**
+
+Please visit [https://stenciljs.com/docs/framework-integration](https://stenciljs.com/docs/framework-integration)
+
+
 ## Example
 
 1. Create two states (HTML)
 2. Wrap both in one fast-morph component (using slot="state-0" and slot="state-1")
 3. Label the elements you want to morph with itemprop="fm-\<something\>"
 4. Label the elements you want to use to change state with itemprop="fm-activator"
-5. List the elements you want to morph in the elements attribute without fm- prefix (this will be removed)
 
 ```html
 <fast-morph elements={['title', 'description']}>

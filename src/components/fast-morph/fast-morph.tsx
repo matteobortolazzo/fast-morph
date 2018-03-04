@@ -110,6 +110,7 @@ export class FastMorph {
     else {
       for (let elGroup of this.elementsToTransform) {
         elGroup.el0.el.style.transform = this.baseTransform;
+        console.log(elGroup.el1.transform);
         elGroup.el1.el.style.transform = elGroup.el1.transform;
       }
     }

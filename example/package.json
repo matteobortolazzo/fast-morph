@@ -1,17 +1,13 @@
 {
-  "name": "@matteobortolazzo/fast-morph",
-  "version": "1.0.1",
-  "description": "A fast Morphing UI web component",
-  "keywords": [ "morph", "morphing ui", "web component", "transform"],
-  "main": "dist/fast-morph.js",
-  "types": "dist/types/components.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
+  "name": "@stencil/starter",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Stencil App Starter",
   "files": [
     "dist/"
   ],
-  "browser": "dist/fast-morph.js",
   "scripts": {
-    "build": "stencil build",
+    "build": "stencil build --prerender",
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "serve": "stencil-dev-server",
     "start": "npm run dev",
@@ -19,7 +15,9 @@
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
+    "@matteobortolazzo/fast-morph": "^1.0.0",
     "@stencil/core": "^0.6.1",
+    "@stencil/router": "latest",
     "@stencil/sass": "0.0.3"
   },
   "devDependencies": {
@@ -30,14 +28,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matteobortolazzo/fast-morph.git"
+    "url": "git+https://github.com/ionic-team/stencil-app-starter.git"
   },
-  "author": "Matteo Bortolazzo",
+  "author": "Ionic Team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/matteobortolazzo/fast-morph"
+    "url": "https://github.com/ionic-team/stencil"
   },
-  "homepage": "https://github.com/matteobortolazzo/fast-morph",
+  "homepage": "https://github.com/ionic-team/stencil",
   "jest": {
     "transform": {
       "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"

@@ -1,15 +1,15 @@
 const sass = require('@stencil/sass');
 
 exports.config = {
-  namespace: 'fast-morph',
-  generateDistribution: true,
-  serviceWorker: false,
   plugins: [
     sass()
+  ],
+  collections: [
+    { name: '@matteobortolazzo/fast-morph' }
   ]
-};
+}
 
 exports.devServer = {
   root: 'www',
   watchGlob: '**/**'
-}
+};

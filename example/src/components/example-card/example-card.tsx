@@ -14,7 +14,7 @@ export class ExampleCard {
             <div class="small-slot" itemprop="fm-activator">
               <div  class="top-card">
                 <div class="content">
-                  <img itemprop="fm-image"       class="city-image" src="assets/asolo.jpg" />
+                  <img itemprop="fm-image"       class="city-image" src="http://www.asolo.it/wp-content/uploads/2013/08/slide-asolo-1a.jpg" />
                   <div class="city-name-container">
                     <div itemprop="fm-name" class="city-name">Asolo</div>
                   </div>
@@ -41,7 +41,7 @@ export class ExampleCard {
             <div class="big-slot" itemprop="fm-activator">
               <div class="top-card">
                 <div class="content">
-                  <img class="city-image" itemprop="fm-image" src="assets/asolo.jpg" />
+                  <img class="city-image" itemprop="fm-image" src="http://www.asolo.it/wp-content/uploads/2013/08/slide-asolo-1a.jpg" />
                   <div class="city-name-container">
                     <div itemprop="fm-name" class="city-name">Asolo</div>
                   </div>
@@ -54,7 +54,7 @@ export class ExampleCard {
                   <div class="product-descriptions">
                     <div>Pizza</div>
                     <div>Pasta</div>
-                    <div>Lasegne</div>
+                    <div>Lasagne</div>
                   </div>
                 </div>
                 <div class="info-front">

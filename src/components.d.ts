@@ -4,9 +4,6 @@
  * and imports for stencil collections that might be configured in your stencil.config.js file
  */
 
-import {
-  MatchResults,
-} from '@stencil/router';
 
 declare global {
   interface HTMLStencilElement extends HTMLElement {
@@ -15,126 +12,6 @@ declare global {
   }
 }
 
-
-
-import {
-  AppHome as AppHome
-} from './components/app-home/app-home';
-
-declare global {
-  interface HTMLAppHomeElement extends AppHome, HTMLStencilElement {
-  }
-  var HTMLAppHomeElement: {
-    prototype: HTMLAppHomeElement;
-    new (): HTMLAppHomeElement;
-  };
-  interface HTMLElementTagNameMap {
-    "app-home": HTMLAppHomeElement;
-  }
-  interface ElementTagNameMap {
-    "app-home": HTMLAppHomeElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "app-home": JSXElements.AppHomeAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface AppHomeAttributes extends HTMLAttributes {
-      
-    }
-  }
-}
-
-
-import {
-  AppProfile as AppProfile
-} from './components/app-profile/app-profile';
-
-declare global {
-  interface HTMLAppProfileElement extends AppProfile, HTMLStencilElement {
-  }
-  var HTMLAppProfileElement: {
-    prototype: HTMLAppProfileElement;
-    new (): HTMLAppProfileElement;
-  };
-  interface HTMLElementTagNameMap {
-    "app-profile": HTMLAppProfileElement;
-  }
-  interface ElementTagNameMap {
-    "app-profile": HTMLAppProfileElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "app-profile": JSXElements.AppProfileAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface AppProfileAttributes extends HTMLAttributes {
-      match?: MatchResults;
-    }
-  }
-}
-
-
-import {
-  ExampleCard as ExampleCard
-} from './components/example-card/example-card';
-
-declare global {
-  interface HTMLExampleCardElement extends ExampleCard, HTMLStencilElement {
-  }
-  var HTMLExampleCardElement: {
-    prototype: HTMLExampleCardElement;
-    new (): HTMLExampleCardElement;
-  };
-  interface HTMLElementTagNameMap {
-    "example-card": HTMLExampleCardElement;
-  }
-  interface ElementTagNameMap {
-    "example-card": HTMLExampleCardElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "example-card": JSXElements.ExampleCardAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface ExampleCardAttributes extends HTMLAttributes {
-      
-    }
-  }
-}
-
-
-import {
-  ExampleText as ExampleText
-} from './components/example-text/example-text';
-
-declare global {
-  interface HTMLExampleTextElement extends ExampleText, HTMLStencilElement {
-  }
-  var HTMLExampleTextElement: {
-    prototype: HTMLExampleTextElement;
-    new (): HTMLExampleTextElement;
-  };
-  interface HTMLElementTagNameMap {
-    "example-text": HTMLExampleTextElement;
-  }
-  interface ElementTagNameMap {
-    "example-text": HTMLExampleTextElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "example-text": JSXElements.ExampleTextAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface ExampleTextAttributes extends HTMLAttributes {
-      
-    }
-  }
-}
 
 
 import {
@@ -161,36 +38,6 @@ declare global {
   }
   namespace JSXElements {
     export interface FastMorphAttributes extends HTMLAttributes {
-      
-    }
-  }
-}
-
-
-import {
-  MyApp as MyApp
-} from './components/my-app/my-app';
-
-declare global {
-  interface HTMLMyAppElement extends MyApp, HTMLStencilElement {
-  }
-  var HTMLMyAppElement: {
-    prototype: HTMLMyAppElement;
-    new (): HTMLMyAppElement;
-  };
-  interface HTMLElementTagNameMap {
-    "my-app": HTMLMyAppElement;
-  }
-  interface ElementTagNameMap {
-    "my-app": HTMLMyAppElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "my-app": JSXElements.MyAppAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface MyAppAttributes extends HTMLAttributes {
       
     }
   }

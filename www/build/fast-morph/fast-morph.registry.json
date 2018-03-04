@@ -1,0 +1,12 @@
+{
+  "namespace": "FastMorph",
+  "fsNamespace": "fast-morph",
+  "loader": "../fast-morph.js",
+  "core": "fast-morph.core.js",
+  "corePolyfilled": "es5-build-disabled.js",
+  "components": {
+    "fast-morph": {
+      "$": "fast-morph"
+    }
+  }
+}
