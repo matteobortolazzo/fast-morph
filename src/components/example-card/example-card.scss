@@ -6,14 +6,28 @@
   }
 }
 
-.example-card {
+@mixin aspect-ratio($width, $height) {
   position: relative;
-
-  .fast-morph {
-    width: 640px;
-    height: 576px;
-    margin: 0 auto;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
   }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.example-card {
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  position: relative;
 
   .small-slot {
     position: absolute;
@@ -23,12 +37,11 @@
     text-align: center;
 
     .top-card {
+      z-index: 5;
+      width: 70%;
       color: white;
-      width: 320px;
-      height: 320px;
       margin: 0 auto;
-      z-index: 10;
-      position: relative;
+      @include aspect-ratio(1, 1);
 
       img {
         width: 100%;
@@ -66,9 +79,9 @@
     }
 
     .bottom-card {
-      width: 440px;
-      position: relative;
+      width: 90%;
       margin: 0 auto;
+      position: relative;
       margin-top: -96px;
       color: rgba(0, 0, 0, 0.8);
       font-size: 12px;
@@ -112,15 +125,13 @@
   }
 
   .big-slot {
-    width: 640px;
-    margin: 0 auto;
+    width: 100%;
 
     .top-card {
+      z-index: 5;
+      width: 100%;
       color: white;
-      height: 320px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 10;
+      @include aspect-ratio(16, 9);
 
       .city-image {
         width: 100%;

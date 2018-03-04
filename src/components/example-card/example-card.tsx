@@ -12,13 +12,15 @@ export class ExampleCard {
         <fast-morph>
           <div slot="state-0">
             <div class="small-slot" itemprop="fm-activator">
-              <div class="top-card">
-                <img itemprop="fm-image"       class="city-image" src="assets/asolo.jpg" />
-                <div class="city-name-container">
-                  <div itemprop="fm-name" class="city-name">Asolo</div>
+              <div  class="top-card">
+                <div class="content">
+                  <img itemprop="fm-image"       class="city-image" src="assets/asolo.jpg" />
+                  <div class="city-name-container">
+                    <div itemprop="fm-name" class="city-name">Asolo</div>
+                  </div>
+                  <div itemprop="fm-coordinates" class="coordinates">45.7993° N, 11.9141° E</div>
+                  <div itemprop="fm-author"      class="author">Matteo Bortolazzo</div>
                 </div>
-                <div itemprop="fm-coordinates" class="coordinates">45.7993° N, 11.9141° E</div>
-                <div itemprop="fm-author"      class="author">Matteo Bortolazzo</div>
               </div>
               <div class="bottom-card">
                 <div itemprop="fm-bottom-card" class="info-back"></div>
@@ -38,12 +40,14 @@ export class ExampleCard {
           <div slot="state-1">
             <div class="big-slot" itemprop="fm-activator">
               <div class="top-card">
-                <img class="city-image" itemprop="fm-image" src="assets/asolo.jpg" />
-                <div class="city-name-container">
-                  <div itemprop="fm-name" class="city-name">Asolo</div>
+                <div class="content">
+                  <img class="city-image" itemprop="fm-image" src="assets/asolo.jpg" />
+                  <div class="city-name-container">
+                    <div itemprop="fm-name" class="city-name">Asolo</div>
+                  </div>
+                  <div itemprop="fm-coordinates" class="coordinates">45.7993° N, 11.9141° E</div>
+                  <div itemprop="fm-author" class="author">Matteo Bortolazzo</div>
                 </div>
-                <div itemprop="fm-coordinates" class="coordinates">45.7993° N, 11.9141° E</div>
-                <div itemprop="fm-author" class="author">Matteo Bortolazzo</div>
               </div>
               <div class="bottom-card">
                 <div itemprop="fm-bottom-card" class="info-back">

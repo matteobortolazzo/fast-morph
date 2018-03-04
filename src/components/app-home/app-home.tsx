@@ -10,7 +10,7 @@ export class AppHome {
     return (
       <div class='app-home'>
         <example-text></example-text>
-        {/*<example-card></example-card>*/}
+        <example-card></example-card>
       </div>
     );
   }
