@@ -41,21 +41,28 @@ Please visit [https://stenciljs.com/docs/framework-integration](https://stencilj
 4. Label the elements you want to use to change state with itemprop="fm-activator"
 
 ```html
-<fast-morph elements={['title', 'description']}>
-  <div slot="state-0">
-    <a itemprop="fm-activator">
-      <strong itemprop="fm-title">Fast Morph</strong>
-      <br />
-      <p itemprop="fm-description">Something to write!</p>
-    </a>
-  </div>
-  <div slot="state-1">
-    <h1 itemprop="fm-title">Fast Morph</h1>
-    <br />
-    <h2 itemprop="fm-description">Something to write!</h2>
-    <a itemprop="fm-activator">Back</a>
-  </div>
-</fast-morph>
+<fast-morph>
+    <div slot="state-0">
+      <div itemprop="fm-activator" class="state-0-div">
+        <div itemprop="fm-sign-in-back" class="sign-in-back"></div>
+        <div itemprop="fm-sign-in">Sign In</div>
+      </div>
+    </div>
+    <div slot="state-1">
+      <div class="form-container">
+        <div class="form-back" itemprop="fm-sign-in-back"></div>
+        <form>
+          <div class="label">Email</div>
+          <input />
+          <div class="label password">Password</div>
+          <input />
+          <br />
+          <div itemprop="fm-sign-in" class="sign-in">Sign In</div>
+          <div class="cancel" itemprop="fm-activator">Cancel</div>
+        </form>
+      </div>
+    </div>
+  </fast-morph>
 ```
 
 ## Keep in mind
