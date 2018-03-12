@@ -6,5 +6,6 @@
 .will-transform {
   will-change: transform;
   transform-origin: left top 0px;
-  transition: transform 600ms  cubic-bezier(0.645, 0.045, 0.355, 1);
+  transform: translateX(0) translateY(0) scaleX(1) scaleY(1);
+  transition: transform 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
 }

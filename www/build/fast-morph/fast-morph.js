@@ -3,8 +3,6 @@ const { h, Context } = window.FastMorph;
 
 class FastMorph {
     constructor() {
-        this.baseTransform = 'translateX(0) translateY(0) scaleX(1) scaleY(1)';
-        this.opacitySpeed = 300;
         this.animationSpeed = 600;
         this.elementsToTransform = [];
         this.transitioning = false;
@@ -53,7 +51,6 @@ class FastMorph {
             let transformStyle1 = `translateX(${translateX}px) translateY(${translateY}px) scaleX(${scaleX}) scaleY(${scaleY})`;
             let transformStyle0 = `translateX(${-translateX}px) translateY(${-translateY}px) scaleX(${1 / scaleX}) scaleY(${1 / scaleY})`;
             // Assign the style
-            el0.style.transform = this.baseTransform;
             el0.classList.add('will-transform');
             el1.style.transform = transformStyle1;
             el1.classList.add('will-transform');
@@ -69,46 +66,45 @@ class FastMorph {
                 }
             });
         }
+        this.goToState0();
     }
     switchSlot() {
         if (this.transitioning)
             return;
         this.transitioning = true;
         this.state = !this.state;
-        this.transformElements();
         if (this.state) {
+            this.goToState1();
             this.hideSlot(this.slot0);
             this.showSlot(this.slot1);
         }
         else {
+            this.goToState0();
             this.hideSlot(this.slot1);
             this.showSlot(this.slot0);
         }
         setTimeout(() => this.transitioning = false, this.animationSpeed);
     }
-    transformElements() {
-        if (this.state) {
-            for (let elGroup of this.elementsToTransform) {
-                elGroup.el0.el.style.transform = elGroup.el0.transform;
-                elGroup.el1.el.style.transform = this.baseTransform;
-            }
+    goToState0() {
+        for (let elGroup of this.elementsToTransform) {
+            elGroup.el0.el.removeAttribute("style");
+            elGroup.el1.el.style.transform = elGroup.el1.transform;
         }
-        else {
-            for (let elGroup of this.elementsToTransform) {
-                elGroup.el0.el.style.transform = this.baseTransform;
-                console.log(elGroup.el1.transform);
-                elGroup.el1.el.style.transform = elGroup.el1.transform;
-            }
+    }
+    goToState1() {
+        for (let elGroup of this.elementsToTransform) {
+            elGroup.el0.el.style.transform = elGroup.el0.transform;
+            elGroup.el1.el.removeAttribute("style");
         }
     }
     hideSlot(slot) {
-        slot.style.transition = 'opacity 300ms cubic-bezier(0.215, 0.61, 0.355, 1)';
+        slot.style.transition = `opacity ${this.animationSpeed / 2}ms cubic-bezier(0.215, 0.61, 0.355, 1)`;
         slot.style.pointerEvents = 'none';
         setTimeout(() => slot.style.visibility = 'none', this.animationSpeed);
-        setTimeout(() => slot.style.opacity = '0', this.opacitySpeed);
+        setTimeout(() => slot.style.opacity = '0', this.animationSpeed / 2);
     }
     showSlot(slot) {
-        slot.style.transition = 'opacity 300ms cubic-bezier(0.55, 0.055, 0.675, 0.19)';
+        slot.style.transition = `opacity ${this.animationSpeed / 2}ms cubic-bezier(0.55, 0.055, 0.675, 0.19)`;
         slot.style.visibility = 'visible';
         slot.style.pointerEvents = 'auto';
         slot.style.opacity = '1';
@@ -120,7 +116,7 @@ class FastMorph {
     }
     static get is() { return "fast-morph"; }
     static get properties() { return { "fastMorphEl": { "elementRef": true } }; }
-    static get style() { return "[slot] {\n  will-change: opacity;\n  contain: layout; }\n\n.will-transform {\n  will-change: transform;\n  transform-origin: left top 0px;\n  transition: transform 600ms cubic-bezier(0.645, 0.045, 0.355, 1); }"; }
+    static get style() { return "[slot] {\n  will-change: opacity;\n  contain: layout; }\n\n.will-transform {\n  will-change: transform;\n  transform-origin: left top 0px;\n  transform: translateX(0) translateY(0) scaleX(1) scaleY(1);\n  transition: transform 600ms cubic-bezier(0.645, 0.045, 0.355, 1); }"; }
 }
 
 export { FastMorph };
