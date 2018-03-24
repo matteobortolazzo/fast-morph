@@ -98,13 +98,13 @@ class FastMorph {
         }
     }
     hideSlot(slot) {
-        slot.style.transition = `opacity ${this.animationSpeed / 2}ms cubic-bezier(0.215, 0.61, 0.355, 1)`;
+        slot.style.transition = `opacity ${this.animationSpeed / 3}ms cubic-bezier(0.215, 0.61, 0.355, 1)`;
         slot.style.pointerEvents = 'none';
         setTimeout(() => slot.style.visibility = 'none', this.animationSpeed);
-        setTimeout(() => slot.style.opacity = '0', this.animationSpeed / 2);
+        setTimeout(() => slot.style.opacity = '0', this.animationSpeed / 3);
     }
     showSlot(slot) {
-        slot.style.transition = `opacity ${this.animationSpeed / 2}ms cubic-bezier(0.55, 0.055, 0.675, 0.19)`;
+        slot.style.transition = `opacity ${this.animationSpeed / 3}ms cubic-bezier(0.55, 0.055, 0.675, 0.19)`;
         slot.style.visibility = 'visible';
         slot.style.pointerEvents = 'auto';
         slot.style.opacity = '1';
