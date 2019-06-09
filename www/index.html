@@ -1,112 +1,77 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <title>Morph UI web component</title>
-  <script src="/build/fast-morph.js"></script>
-</head>
-<body>
-<style>
-  body {
-    padding: 64px;
-    text-align: center;
-  }
-  .container {
-    position: relative;
-  }
-
-  .state-0-div {
-    width: 20%;
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 8px 32px;
-    color: rgba(255, 255, 255, 0.9);
-    transition: transform 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-  .sign-in-back {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    border-radius: 16px;
-    background: #00B16A;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-
-  .form-container {
-    width: 40%;
-    position: relative;
-    display: inline-block;
-    color: white;
-    padding: 32px;
-  }
-
-  .form-back {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    border-radius: 16px;
-    background: #00B16A;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-
-  .label {
-    color: rgba(255, 255, 255, 0.9);
-  }
-  .password {
-    margin-top: 8px;
-  }
-  input {
-    border: 0;
-    width: 100%;
-    border-radius: 4px;
-  }
-  form .sign-in {
-    margin-top: 32px;
-    background: black;
-    color: rgba(255, 255, 255, 0.9);
-    border-radius: 16px;
-    padding: 4px 16px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  .cancel {
-    margin-top: 8px;
-    font-size: 12px;
-    color: rgba(255, 255, 255, .6);
-  }
-</style>
-<div class="container">
-  <fast-morph>
-    <div slot="state-0">
-      <div itemprop="fm-activator" class="state-0-div">
-        <div itemprop="fm-sign-in-back" class="sign-in-back"></div>
-        <div itemprop="fm-sign-in">Sign In</div>
-      </div>
-    </div>
-    <div slot="state-1">
-      <div class="form-container">
-        <div class="form-back" itemprop="fm-sign-in-back"></div>
-        <form>
-          <div class="label">Email</div>
-          <input />
-          <div class="label password">Password</div>
-          <input />
-          <br />
-          <div itemprop="fm-sign-in" class="sign-in">Sign In</div>
-          <div class="cancel" itemprop="fm-activator">Cancel</div>
-        </form>
-      </div>
-    </div>
-  </fast-morph>
-</div>
-</body>
-</html>
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Stencil Component Starter</title>  <link rel="modulepreload" href="/build/p-67dafba8.js"><link rel="modulepreload" href="/build/p-mblxbb8r.entry.js"><script nomodule="" src="/build/fast-morph.js"></script> </head> <body> <style>
+    body {
+      padding: 64px;
+      text-align: center;
+    }
+    .container {
+      position: relative;
+    }
+  
+    .state-0-div {
+      width: 20%;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 8px 32px;
+      color: rgba(255, 255, 255, 0.9);
+      transition: transform 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    .sign-in-back {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      border-radius: 16px;
+      background: #00B16A;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+  
+    .form-container {
+      width: 40%;
+      position: relative;
+      display: inline-block;
+      color: white;
+      padding: 32px;
+    }
+  
+    .form-back {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      border-radius: 16px;
+      background: #00B16A;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+  
+    .label {
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .password {
+      margin-top: 8px;
+    }
+    input {
+      border: 0;
+      width: 100%;
+      border-radius: 4px;
+    }
+    form .sign-in {
+      margin-top: 32px;
+      background: black;
+      color: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      padding: 4px 16px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .cancel {
+      margin-top: 8px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, .6);
+    }
+  </style> <div class="container"> <fast-morph> <div slot="state-0"> <div itemprop="fm-activator" class="state-0-div"> <div itemprop="fm-sign-in-back" class="sign-in-back"></div> <div itemprop="fm-sign-in">Sign In</div> </div> </div> <div slot="state-1"> <div class="form-container"> <div class="form-back" itemprop="fm-sign-in-back"></div> <form> <div class="label">Email</div> <input> <div class="label password">Password</div> <input> <br> <div itemprop="fm-sign-in" class="sign-in">Sign In</div> <div class="cancel" itemprop="fm-activator">Cancel</div> </form> </div> </div> </fast-morph> </div> <script type="module" data-resources-url="/build/" data-namespace="fast-morph">import{p as r,b as s}from"/build/p-67dafba8.js";r().then(r=>s([["p-mblxbb8r",[[4,"fast-morph"]]]],{resourcesUrl:r}));</script></body></html>

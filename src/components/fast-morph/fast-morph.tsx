@@ -1,8 +1,8 @@
-import {Component, Element} from '@stencil/core';
+import {Component, Element, h} from '@stencil/core';
 
 @Component({
   tag: 'fast-morph',
-  styleUrl: 'fast-morph.scss'
+  styleUrl: 'fast-morph.css'
 })
 export class FastMorph {
 

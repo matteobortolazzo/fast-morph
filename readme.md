@@ -12,25 +12,16 @@ Inspired by brunnolou's [react-morph](https://github.com/brunnolou/react-morph)
 npm i @matteobortolazzo/fast-morph --save
 ```
 
-**Stencil project**
-```
-// stencil.config.js
-exports.config = {
-  ...
-  collections: [
-    { name: '@matteobortolazzo/fast-morph' }
-  ]
-}
-```
+## Usage
 
 **Pure HTML**
 ```
-<script src="https://unpkg.com/@matteobortolazzo/fast-morph@1.0.1/dist/fast-morph.js"></script> 
+<script src="https://unpkg.com/@matteobortolazzo/fast-morph@1.1.0/dist/fast-morph.js"></script> 
 ```
 
-**Angular / React**
+**Frameworks**
 
-Please visit [https://stenciljs.com/docs/framework-integration](https://stenciljs.com/docs/framework-integration)
+Please visit [https://stenciljs.com/docs/overview](https://stenciljs.com/docs/overview)
 
 
 ## Example
